@@ -105,14 +105,28 @@ Remove `optional:` in production if you want startup to fail fast when secrets a
 
 ## Quick start (local)
 
-### 1. Create the database
+### 1. Create the database and student table
+
+Create the database:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS sparepartservice
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-The `student` table is created automatically (`spring.jpa.hibernate.ddl-auto=update`). See `src/main/resources/schema.sql` for reference DDL.
+Create the `student` table (from `schema.sql` lines 2–8). You can run this manually, or let Hibernate create it on startup via `spring.jpa.hibernate.ddl-auto=update`:
+
+```2:8:src/main/resources/schema.sql
+CREATE TABLE IF NOT EXISTS student (
+    student_id   VARCHAR(50)  NOT NULL,
+    student_name VARCHAR(100) NOT NULL,
+    email        VARCHAR(255),
+    course       VARCHAR(100),
+    PRIMARY KEY (student_id, student_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+The table uses a **composite primary key** on `(student_id, student_name)`.
 
 ### 2. Run without AWS (environment variables)
 

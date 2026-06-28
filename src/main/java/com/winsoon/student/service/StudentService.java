@@ -1,13 +1,14 @@
-package com.example.student.service;
+package com.winsoon.student.service;
 
-import com.example.student.dto.StudentRequest;
-import com.example.student.dto.StudentUpdateRequest;
-import com.example.student.exception.StudentNotFoundException;
-import com.example.student.model.Student;
-import com.example.student.model.StudentId;
-import com.example.student.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.winsoon.student.dto.StudentRequest;
+import com.winsoon.student.dto.StudentUpdateRequest;
+import com.winsoon.student.exception.StudentNotFoundException;
+import com.winsoon.student.model.Student;
+import com.winsoon.student.model.StudentId;
+import com.winsoon.student.repository.StudentRepository;
 
 import java.util.List;
 

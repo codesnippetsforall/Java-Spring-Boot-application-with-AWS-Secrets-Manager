@@ -1,4 +1,4 @@
-package com.example.student.exception;
+package com.winsoon.student.exception;
 
 public class StudentNotFoundException extends RuntimeException {
 

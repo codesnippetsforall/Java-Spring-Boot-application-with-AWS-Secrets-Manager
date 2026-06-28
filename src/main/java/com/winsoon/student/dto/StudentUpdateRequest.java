@@ -1,4 +1,4 @@
-package com.example.student.dto;
+package com.winsoon.student.dto;
 
 public class StudentUpdateRequest {
 

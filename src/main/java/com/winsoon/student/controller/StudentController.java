@@ -1,9 +1,5 @@
-package com.example.student.controller;
+package com.winsoon.student.controller;
 
-import com.example.student.dto.StudentRequest;
-import com.example.student.dto.StudentUpdateRequest;
-import com.example.student.model.Student;
-import com.example.student.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +11,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.winsoon.student.dto.StudentRequest;
+import com.winsoon.student.dto.StudentUpdateRequest;
+import com.winsoon.student.model.Student;
+import com.winsoon.student.service.StudentService;
 
 import java.util.List;
 import java.util.Map;

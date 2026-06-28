@@ -1,4 +1,4 @@
-package com.example.student.exception;
+package com.winsoon.student.exception;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

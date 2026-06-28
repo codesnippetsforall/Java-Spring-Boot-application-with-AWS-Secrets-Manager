@@ -1,28 +1,16 @@
-package com.example.student.model;
+package com.winsoon.student.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "student")
-@IdClass(StudentId.class)
-public class Student {
+public class StudentRequest {
 
-    @Id
-    @Column(name = "student_id", nullable = false, length = 50)
+    @NotBlank
     private String studentId;
 
-    @Id
-    @Column(name = "student_name", nullable = false, length = 100)
+    @NotBlank
     private String studentName;
 
-    @Column(length = 255)
     private String email;
-
-    @Column(length = 100)
     private String course;
 
     public String getStudentId() {

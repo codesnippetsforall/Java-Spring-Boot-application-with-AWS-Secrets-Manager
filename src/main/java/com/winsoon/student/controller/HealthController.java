@@ -1,4 +1,4 @@
-package com.example.student.controller;
+package com.winsoon.student.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

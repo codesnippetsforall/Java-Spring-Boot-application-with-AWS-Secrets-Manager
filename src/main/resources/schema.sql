@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS student (
     student_name VARCHAR(100) NOT NULL,
     email        VARCHAR(255),
     course       VARCHAR(100),
-    PRIMARY KEY (student_id, student_name)
+    PRIMARY KEY (student_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

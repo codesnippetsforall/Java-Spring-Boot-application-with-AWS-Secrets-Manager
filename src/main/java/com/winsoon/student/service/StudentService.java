@@ -7,7 +7,6 @@ import com.winsoon.student.dto.StudentRequest;
 import com.winsoon.student.dto.StudentUpdateRequest;
 import com.winsoon.student.exception.StudentNotFoundException;
 import com.winsoon.student.model.Student;
-import com.winsoon.student.model.StudentId;
 import com.winsoon.student.repository.StudentRepository;
 
 import java.util.List;
@@ -31,9 +30,9 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Student getById(String studentId, String studentName) {
-        return studentRepository.findById(new StudentId(studentId, studentName))
-                .orElseThrow(() -> new StudentNotFoundException(studentId, studentName));
+    public Student getById(String studentId) {
+        return studentRepository.findById(studentId)
+                .orElseThrow(() -> new StudentNotFoundException(studentId));
     }
 
     public List<Student> getAll() {
@@ -41,8 +40,11 @@ public class StudentService {
     }
 
     @Transactional
-    public Student update(String studentId, String studentName, StudentUpdateRequest request) {
-        Student student = getById(studentId, studentName);
+    public Student update(String studentId, StudentUpdateRequest request) {
+        Student student = getById(studentId);
+        if (request.getStudentName() != null) {
+            student.setStudentName(request.getStudentName());
+        }
         if (request.getEmail() != null) {
             student.setEmail(request.getEmail());
         }
@@ -53,11 +55,10 @@ public class StudentService {
     }
 
     @Transactional
-    public void delete(String studentId, String studentName) {
-        StudentId id = new StudentId(studentId, studentName);
-        if (!studentRepository.existsById(id)) {
-            throw new StudentNotFoundException(studentId, studentName);
+    public void delete(String studentId) {
+        if (!studentRepository.existsById(studentId)) {
+            throw new StudentNotFoundException(studentId);
         }
-        studentRepository.deleteById(id);
+        studentRepository.deleteById(studentId);
     }
 }

@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Map<String, String>> handleDuplicate(DataIntegrityViolationException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Map.of("error", "Student already exists with the same student_id and student_name"));
+                .body(Map.of("error", "Student already exists with the same student_id"));
     }
 
     @ExceptionHandler(Exception.class)

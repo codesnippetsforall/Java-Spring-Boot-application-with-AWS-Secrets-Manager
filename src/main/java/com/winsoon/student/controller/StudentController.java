@@ -41,29 +41,23 @@ public class StudentController {
         return studentService.getAll();
     }
 
-    @GetMapping("/{studentId}/{studentName}")
-    public Student getById(
-            @PathVariable String studentId,
-            @PathVariable String studentName) {
-        return studentService.getById(studentId, studentName);
+    @GetMapping("/{studentId}")
+    public Student getById(@PathVariable String studentId) {
+        return studentService.getById(studentId);
     }
 
-    @PutMapping("/{studentId}/{studentName}")
+    @PutMapping("/{studentId}")
     public Student update(
             @PathVariable String studentId,
-            @PathVariable String studentName,
             @RequestBody StudentUpdateRequest request) {
-        return studentService.update(studentId, studentName, request);
+        return studentService.update(studentId, request);
     }
 
-    @DeleteMapping("/{studentId}/{studentName}")
-    public ResponseEntity<Map<String, String>> delete(
-            @PathVariable String studentId,
-            @PathVariable String studentName) {
-        studentService.delete(studentId, studentName);
+    @DeleteMapping("/{studentId}")
+    public ResponseEntity<Map<String, String>> delete(@PathVariable String studentId) {
+        studentService.delete(studentId);
         return ResponseEntity.ok(Map.of(
                 "message", "Student deleted successfully",
-                "studentId", studentId,
-                "studentName", studentName));
+                "studentId", studentId));
     }
 }

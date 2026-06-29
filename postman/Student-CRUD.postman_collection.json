@@ -1,14 +1,14 @@
 {
   "info": {
     "_postman_id": "student-crud-collection",
-    "name": "Student CRUD",
-    "description": "Test Student CRUD API on Elastic Beanstalk or locally.\n\nSet baseUrl to your EB URL or http://localhost:8080",
+    "name": "Student CRUD (AWS)",
+    "description": "Test Student CRUD API locally or on AWS (Elastic Beanstalk, ECS, EC2).\n\nSet baseUrl to your deployed URL or http://localhost:8090 (default APPLICATION_PORT).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:8080"
+      "value": "http://localhost:8090"
     },
     {
       "key": "studentId",
